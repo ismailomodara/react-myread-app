@@ -28,8 +28,8 @@ class BooksAppHome extends React.Component {
   }
 
  /**
-  * This function helps to sort books to the respective 
-  * shelf they belong when the result is gotten from the 
+  * This function helps to sort books to the respective
+  * shelf they belong when the result is gotten from the
   * API response.
   */
   sortBookToShelf = (books) => {
@@ -52,7 +52,7 @@ class BooksAppHome extends React.Component {
           shelf: {
             ...currentState.shelf,
             [book.shelf]: currentState.shelf[book.shelf].filter(bookInShelf => bookInShelf.id !== book.id),
-            [shelf]: currentState.shelf[shelf].concat([book])
+            ...(shelf !== 'none' && { [shelf]: currentState.shelf[shelf].concat([book]) })
           }
         }))
         this.props.updateBooks()
