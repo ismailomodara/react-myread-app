@@ -16,9 +16,9 @@ class Book extends React.Component  {
 
   render() {
     const book = this.props.book;
-    const bookImage = book.imageLinks && book.imageLinks.thumbnail
-    const bookTitle = book.title && book.title
-    const bookAuthors = book.authors && book.authors.join(', ')
+    const bookImage = book?.imageLinks?.thumbnail ?? ''
+    const bookTitle = book?.title ?? 'Unknown'
+    const bookAuthors = book?.authors?.join(', ') ?? 'Unknown'
 
     return (
         <div className="book">
